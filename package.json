@@ -1,0 +1,24 @@
+{
+  "name": "physics_shit",
+  "version": "1.0.0",
+  "description": "simple physics implementation using js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "V=`node -e \"console.log(require('./package.json').version)\"`; browserify lib/main.js --debug | tee ./js/phyShit-$V.js | uglifyjs > ./js/phyShit-$V.min.js",
+    "build-demo": "V=`node -e \"console.log(require('./package.json').version)\"`; browserify lib/demo/main.js --debug | tee ./js/demo/demo_main-$V.js | uglifyjs > ./js/demo_main-$V.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhishekg785/do_physical_shit_JS.git"
+  },
+  "author": "abhishekg785 <abhishekg785@gmail.com> (http://abhishekg785.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abhishekg785/do_physical_shit_JS/issues"
+  },
+  "homepage": "https://github.com/abhishekg785/do_physical_shit_JS#readme",
+  "dependencies": {
+    "vec2": "^1.6.0"
+  }
+}
