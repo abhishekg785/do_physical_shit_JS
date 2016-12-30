@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test-vec2" : "node test/test_vec2.js > test_vec2.log",
     "build": "V=`node -e \"console.log(require('./package.json').version)\"`; browserify lib/main.js --debug | tee ./js/phyShit-$V.js | uglifyjs > ./js/phyShit-$V.min.js",
     "build-demo": "V=`node -e \"console.log(require('./package.json').version)\"`; browserify lib/demo/main.js --debug | tee ./js/demo/demo_main-$V.js | uglifyjs > ./js/demo_main-$V.min.js"
   },

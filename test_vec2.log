@@ -1,0 +1,24 @@
+Vec2(equality):PASS
+Vec2(epsilon equality):PASS
+Vec2(epsilon non-equality):PASS
+Vec2(addition):PASS
+Vec2(subtraction):PASS
+Vec2(multiply):PASS
+Vec2(divide):PASS
+Vec2(scale):PASS
+Vec2(mutable set):PASS
+Vec2(mutable addition):PASS
+Vec2(mutable subtraction):PASS
+Vec2(mutable multiply):PASS
+Vec2(mutable divide):PASS
+Vec2(mutable scale):PASS
+Vec2(length):PASS
+Vec2(length2):PASS
+Vec2(dist):PASS
+Vec2(dist2):PASS
+Vec2(normal):PASS
+Vec2(dot):PASS
+Vec2(angle):PASS
+Vec2(angle2):PASS
+Vec2(rotate):PASS
+Vec2(toString):PASS
