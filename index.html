@@ -1,8 +1,32 @@
 <html>
 <head>
-<title>Demo</title>
+    <title>Demo</title>
+    <script src = "js/phyShit-1.0.0.min.js"></script>
 </head>
 <body>
-<script src = "js/phyShit-1.0.0.min.js"></script>
+<canvas width = "800" height = "300" id = "canvas"></canvas>
+<script>
+
+    var world;
+    // initialize a 2d world
+    function initializeWorld() {
+        world = new PhyShit(800, 300, document.getElementById('canvas'));
+        world.tire(new Vec2(100,100), 100, 9, 1, 1);
+    }
+
+    // call the frame and draw method
+    var fps = 30;   // frame per second
+    function renderWorld() {
+        world.frame(16);
+        world.draw();
+        setTimeout(renderWorld, 1000/fps);
+    }
+
+    window.onload = function() {
+        console.log('doing my work bro :)');
+        initializeWorld();
+        renderWorld();
+    }
+</script>
 </body>
 </html>
