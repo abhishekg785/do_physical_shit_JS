@@ -24,13 +24,13 @@
         particle : null
     };
 
-    function init() {
-
-    }
 
     function Particle(canvas) {
+        this.canvas = canvas;
+        this.height = canvas.height;
+        this.width = canvas.width;
         this.ctx = canvas.getContext('2d');
-        this.radius = 30;
+        this.radius = 10;
         this.x = 30;
         this.y = 30;
         this.draw();
@@ -44,10 +44,37 @@
         this.ctx.fill();
     }
 
+    /*
+        preventing the particle to not pass through the canvas bounds
+        x = get the x pos of particle
+        y = get the y pos of the particle
+        conditions :
+        x > 0 && x < this.width
+        y < this.height
+
+     */
+    Particle.prototype.bounds = function() {
+
+        // fixing y position
+        if(Globals.particle.y > this.height - 1) {
+            Globals.particle.y = this.height - 2;
+        }
+
+        if(Globals.particle.x < 0) {
+            Globals.particle.x = 0;
+        }
+
+        if(Globals.particle.x > this.width - 1) {
+            Globals.particle.x = this.width - 1;
+        }
+
+    }
+
     function applyGravity() {
         Globals.particle.y += 0.7;
         console.log(Globals.particle.x);
         Globals.particle.draw();
+        Globals.particle.bounds();
         w.requestAnimationFrame(applyGravity);
     }
 
@@ -55,7 +82,7 @@
     $w.on('load', function() {
         $Objects.canvas = $('#canvas')[0];
         Globals.particle = new Particle($Objects.canvas);
-        // applyGravity();
+        applyGravity();
     });
 
 
