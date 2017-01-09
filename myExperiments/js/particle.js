@@ -82,7 +82,7 @@
     $w.on('load', function() {
         $Objects.canvas = $('#canvas')[0];
         Globals.particle = new Particle($Objects.canvas);
-        applyGravity();
+        // applyGravity();
     });
 
 
