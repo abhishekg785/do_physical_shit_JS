@@ -12,17 +12,21 @@
 
 (function($, $d, $w, d, w) {
 
-    window.requestAnimationFrame = window.requestAnimationFrame
-        || window.webkitRequestAnimationFrame
-        || window.mozRequestAnimationFrame
-        || window.oRequestAnimationFrame
+    w.requestAnimationFrame = w.requestAnimationFrame
+        || w.webkitRequestAnimationFrame
+        || w.mozRequestAnimationFrame
+        || w.oRequestAnimationFrame
         || function(callback) {                          // in case browser does not support requestAnimationFrame
-            window.setTimeout(callback, 1000 / 60);
+            w.setTimeout(callback, 1000 / 60);
         }
 
     var Globals = {
-
+        particle : null
     };
+
+    function init() {
+
+    }
 
     function Particle(canvas) {
         this.ctx = canvas.getContext('2d');
@@ -33,16 +37,25 @@
     }
 
     Particle.prototype.draw = function() {
+        this.ctx.clearRect(0, 0, $Objects.canvas.height, $Objects.canvas.width);
         this.ctx.beginPath();
         this.ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
         this.ctx.fillStyle = "red";
         this.ctx.fill();
     }
 
+    function applyGravity() {
+        Globals.particle.y += 0.7;
+        console.log(Globals.particle.x);
+        Globals.particle.draw();
+        w.requestAnimationFrame(applyGravity);
+    }
+
     $Objects = {};
     $w.on('load', function() {
         $Objects.canvas = $('#canvas')[0];
-        new Particle($Objects.canvas);
+        Globals.particle = new Particle($Objects.canvas);
+        // applyGravity();
     });
 
 
