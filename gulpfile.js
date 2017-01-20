@@ -18,6 +18,6 @@ gulp.task('browserSync', function() {
 
 // running browserSync before any other activity
 gulp.task('watch', ['browserSync'], function() {
-    gulp.watch('myExperiments/*.html', browserSync.reload());
+    gulp.watch('myExperiments/*.html', browserSync.reload);
     gulp.watch('myExperiments/js/**/*.js', browserSync.reload);
 });

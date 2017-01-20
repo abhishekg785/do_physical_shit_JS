@@ -111,6 +111,7 @@
     // handle the dragging of the particle too.
     Particle.prototype.applyGravity = function() {
         // get the velocity => distance travelled * friction
+        console.log(this.pos);
         var distTravelled = this.pos.sub(this.lastPos);
         var velocity = distTravelled.scale(this.friction);
 
@@ -172,7 +173,6 @@
         }
         $Objects.canvas = $('#canvas')[0];
         Globals.particle = new Particle($Objects.canvas, $Objects.pos);
-
         // function to create the gravity in our env
         function createEnv() {
             Globals.particle.applyGravity();
