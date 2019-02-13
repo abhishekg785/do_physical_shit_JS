@@ -1,0 +1,10 @@
+A shitty physics engine for the browser built from scratch in pure Javascript.
+
+I love how game engine works, and it's even more fascinating how games can be created to run in the browsers.
+Browsers are more powerful now than ever!
+
+This shitty engine implemets simple physics principles like gravity, velocity, accleration etc.
+Can be used to create simple real life simulations, objects to be run in the browser.
+
+
+
